@@ -7,7 +7,7 @@
     stages {
         stage('GitHub Clone') {
             steps {
-                git branch: 'Project-02', url: 'https://github.com/MagalurAdithya/Project-02.git'
+                git branch: 'project2', url: 'https://github.com/yaswanthsaidodda/project2.git'
             }
         }
         stage('Build Maven') {
@@ -17,11 +17,7 @@
         }
         stage('Deploy Tomcat') {
             steps {
-               deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'Tomcat-id1', 
-               path: '', 
-               url: 'http://13.232.30.5:8080/')], 
-               contextPath: 'Project-02', 
-               war: '**/*.war'
+              deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat', path: '', url: 'http://13.234.59.44:8080/')], contextPath: 'project2', war: '**/*.war'
             }
         }
     }
